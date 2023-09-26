@@ -30,24 +30,22 @@
 <model-viewer
   id="animated"
   camera-controls
-  orientation="0 270deg 0"
   touch-action="pan-y"
+  orientation="0 270deg 90deg"
   src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/blender-plane.glb"
   ar
   alt=""
-  scale="0.0005 0.0005 0.0005"
 >
-
 </model-viewer>
 
-<script type="module">
+<script type="module" crossorigin="anonymous">
 
   const modelViewerAnimated = document.querySelector("model-viewer#animated");
   let lottieTexture = null;
 
   function getLottieTexture() {
     if(lottieTexture) return lottieTexture;
-    lottieTexture = modelViewerAnimated.createLottieTexture("https://modelviewer.dev/shared-assets/models/24017-lottie-logo-animation.json", 2);
+    lottieTexture = modelViewerAnimated.createLottieTexture("https://864427.selcdn.ru/e1c138bd4faf090bce/ar/lottie.json", 2);
     return lottieTexture;
   }
 
@@ -68,6 +66,8 @@
   baseColorTexture.setTexture(await getLottieTexture());
 
 });
+
+</script>
 
 </body>
 
