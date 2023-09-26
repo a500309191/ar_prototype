@@ -48,11 +48,12 @@
   })
 
   modelViewerAnimated.addEventListener("load", async () => {
-    const material = modelViewerAnimated.model.materials[0];\
+    const material = modelViewerAnimated.model.materials[0];
+    
 
     material.setAlphaMode("MASK")
     console.log("GET ALPHA MODE: ", material.getAlphaMode())
-    
+
     material.setAlphaCutoff(1)
     console.log("AALPHA: ", material.getAlphaCutoff())
 
