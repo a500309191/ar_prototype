@@ -40,14 +40,14 @@
 
 </model-viewer>
 
-<script type="module" crossorigin="anonymous">
+<script type="module">
 
   const modelViewerAnimated = document.querySelector("model-viewer#animated");
   let lottieTexture = null;
 
   function getLottieTexture() {
     if(lottieTexture) return lottieTexture;
-    lottieTexture = modelViewerAnimated.createLottieTexture("https://a500309191.github.io/ar_prototype/lottie.json", 2);
+    lottieTexture = modelViewerAnimated.createLottieTexture("https://modelviewer.dev/shared-assets/models/24017-lottie-logo-animation.json", 2);
     return lottieTexture;
   }
 
