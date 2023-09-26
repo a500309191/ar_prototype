@@ -17,6 +17,23 @@
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 
 <style>
+  div * {
+    font-family: Arial;
+    user-select: none;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .ar-button {
+    background-color: white;
+    font-size: 54px;
+    border-radius: 4px;
+    border: none;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+  }
   model-viewer {
     background: linear-gradient(0deg, rgb(41, 41, 41) 26%, rgb(70, 70, 70) 100%);
     width: 100vw;
@@ -37,6 +54,7 @@
   alt=""
 >
 </model-viewer>
+<button class="ar-button" slot="ar-button">OPEN IN AR</button>
 
 <script type="module" crossorigin="anonymous">
 
