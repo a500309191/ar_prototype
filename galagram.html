@@ -30,6 +30,7 @@
 <model-viewer
   id="animated"
   camera-controls
+  orientation="0 270deg 0"
   touch-action="pan-y"
   src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/blender-plane.glb"
   ar
@@ -49,7 +50,7 @@
 
   modelViewerAnimated.addEventListener("load", async () => {
     const material = modelViewerAnimated.model.materials[0];
-    
+
 
     material.setAlphaMode("MASK")
     console.log("GET ALPHA MODE: ", material.getAlphaMode())
