@@ -27,12 +27,37 @@
   }
   .ar-button {
     background-color: white;
-    font-size: 54px;
+    font-size: 36px;
     border-radius: 4px;
     border: none;
     position: absolute;
     bottom: 32px;
     right: 32px;
+  }
+  .controls {
+    z-index: 0;
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .material-button {
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 8px;
+  }
+  .material-button:hover {
+    cursor: pointer;
+  }
+  .active {
+    background-color: rgb(138, 138, 138);
   }
   model-viewer {
     background: linear-gradient(0deg, rgb(41, 41, 41) 26%, rgb(70, 70, 70) 100%);
