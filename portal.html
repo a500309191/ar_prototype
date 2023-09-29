@@ -8,47 +8,9 @@
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
 
 <style>
-  div * {
-    font-family: Arial;
-    user-select: none;
-  }
   body {
     margin: 0;
     padding: 0;
-  }
-  .ar-button {
-    background-color: white;
-    font-size: 36px;
-    border-radius: 4px;
-    border: none;
-    position: absolute;
-    bottom: 32px;
-    right: 32px;
-  }
-  .controls {
-    z-index: 0;
-    position: absolute;
-    top: 24px;
-    left: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .material-button {
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-    font-size: 20px;
-    border-radius: 6px;
-    padding: 8px;
-  }
-  .material-button:hover {
-    cursor: pointer;
-  }
-  .active {
-    background-color: rgb(138, 138, 138);
   }
   model-viewer {
     background: linear-gradient(0deg, rgb(41, 41, 41) 26%, rgb(70, 70, 70) 100%);
@@ -76,50 +38,7 @@
 
     modelViewerParameters.addEventListener("load", () => {
 
-      let material = modelViewerParameters.model.materials[0]
-      console.log("portal material: ", material)
 
-      //set default marble material
-      material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1])
-      material.pbrMetallicRoughness.setMetallicFactor(0)
-      material.pbrMetallicRoughness.setRoughnessFactor(1)
-
-      let marbleButton = document.querySelector("#marble")
-      let goldButton = document.querySelector("#gold")
-      let silverButton = document.querySelector("#silver")
-
-      marbleButton.addEventListener('click', (event) => {
-        console.log(event)
-        marbleButton.classList.toggle("active")
-        if (goldButton.classList.contains("active")) { goldButton.classList.toggle("active") }
-        if (silverButton.classList.contains("active")) { silverButton.classList.toggle("active") }
-
-        material.pbrMetallicRoughness.setBaseColorFactor([1, 1, 1])
-        material.pbrMetallicRoughness.setMetallicFactor(0)
-        material.pbrMetallicRoughness.setRoughnessFactor(1)
-      })
-
-      goldButton.addEventListener('click', (event) => {
-        console.log(event)
-        goldButton.classList.toggle("active")
-        if (marbleButton.classList.contains("active")) { marbleButton.classList.toggle("active") }
-        if (silverButton.classList.contains("active")) { silverButton.classList.toggle("active") }
-
-        material.pbrMetallicRoughness.setBaseColorFactor([0.7294, 0.5333, 0.0392])
-        material.pbrMetallicRoughness.setMetallicFactor(1)
-        material.pbrMetallicRoughness.setRoughnessFactor(0.3)
-      })
-    
-      silverButton.addEventListener('click', (event) => {
-        console.log(event)
-        silverButton.classList.toggle("active")
-        if (marbleButton.classList.contains("active")) { marbleButton.classList.toggle("active") }
-        if (goldButton.classList.contains("active")) { goldButton.classList.toggle("active") }
-
-        material.pbrMetallicRoughness.setBaseColorFactor([0.9, 0.9, 0.9])
-        material.pbrMetallicRoughness.setMetallicFactor(1)
-        material.pbrMetallicRoughness.setRoughnessFactor(0.2)
-      })
     })
   </script>
 
