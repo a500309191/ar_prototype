@@ -28,7 +28,7 @@
     scale="0.0005 0.0005 0.0005"
     camera-controls
     touch-action="pan-y"
-    src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/portal.glb"
+    src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/portal_2.glb"
     alt="A 3D model of an portal"
   >
   </model-viewer>
@@ -37,8 +37,14 @@
     const modelViewerParameters = document.querySelector("model-viewer#portal")
 
     modelViewerParameters.addEventListener("load", () => {
+      let material = modelViewerParameters.model.materials[0]
 
+      // material.setDoubleSided(false)
+      // material.setAlphaMode(true)
+      // material.setAlphaCutoff(false)
+      modelViewerParameters.getMaterialByName("_1")
 
+      console.log("Material: ", material.getDoubleSided())
     })
   </script>
 
