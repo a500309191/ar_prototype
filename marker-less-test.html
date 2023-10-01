@@ -24,12 +24,13 @@
 
     </script>
 
-    <a-scene test embedded arjs >
+    <a-scene test embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;" >
       <a-marker id="marker" preset="hiro"> 
 
         <a-entity
           model
           id="model"
+          look-controls
           position="0 0 0"
           scale="0.0005 0.0005 0.0005"
           obj-model="
@@ -52,13 +53,9 @@
       const model = document.querySelector("#model")
       const modelClone = model.cloneNode(true)
 
-      console.log("MODEL: ", model)
 
       marker.addEventListener("markerFound", (e)=>{
-        console.log("found")
-        console.log("model position: ", model.getAttribute('position'))
-        console.log("marker position: ",marker.getAttribute('position'))
-        console.log("marker rotation: ",marker.getAttribute('rotation'))
+        // marker.appendChild(model)
       })
 
       marker.addEventListener("markerLost", (e)=>{
@@ -73,6 +70,7 @@
         modelClone.setAttribute('rotation', markerRotation)
 
         scene.removeChild(marker)
+        // marker.removeChild(model)
         scene.appendChild(modelClone)
 
       })
