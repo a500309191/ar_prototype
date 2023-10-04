@@ -38,8 +38,8 @@
                     wood.map = node.material.map
                     node.material = wood
                   case node.material.name === "mir":
-                    console.log(node.material)
-                    node.material = mirror
+                    // console.log(node.material)
+                    // node.material = mirror
 
                   default:
                     break
@@ -53,11 +53,11 @@
     </script>
 
     <!-- <a-scene test embedded arjs vr-mode-ui="enabled: false" arjs='debugUIEnabled: false;'> -->
-    <a-scene embedded arjs="sourceType: webcam; trackingMethod: best; debugUIEnabled: false;">
-      <a-marker-camera preset="hiro">
+    <a-scene embedded arjs>
+       <a-marker-camera preset="hiro">
 
         <a-light
-          intensity="1"
+          intensity="4"
           color="#FFFFFF"
           light="castShadow:true; type:directional"
           position="0 5 5"
@@ -69,22 +69,19 @@
           light="type:ambient"
         ></a-light>
 
-
-
-      </a-marker-camera>
-
         <a-entity
-          camera
-          look-controls
-          orbit-controls="target: 0 0 0; minDistance: 0.5; maxDistance: 180; initialPosition: 0 0 0"
           model
           position="0 0 0"
           scale="0.0025 0.0025 0.0025"
+    
           obj-model="
             obj: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/furniture_test.obj);
             mtl: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/furniture_test.mtl);
           "
         ></a-entity>
+
+      </a-marker>
+      <a-entity camera></a-entity>
     </a-scene>
 
   </body>
