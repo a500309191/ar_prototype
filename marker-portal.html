@@ -24,10 +24,32 @@
             let model = el.getObject3D("mesh")
             console.log("3D: ", model)
 
+
+
+
+
+
+
+            const interrior = new THREE.MeshMatcapMaterial()
+            const david = new THREE.MeshMatcapMaterial()
+            david.color = new THREE.Color("rgb(0, 155, 0)")
+            const venus = new THREE.MeshMatcapMaterial()
+            venus.color = new THREE.Color("rgb(155, 0, 0)")
+
+            const portal_1 = new THREE.MeshPhysicalMaterial()
+            portal_1.color = new THREE.Color("rgb(60, 60, 60)")
+            portal_1.metalness = 0.5
+            portal_1.roughness = 1
+            portal_1.clearcoat = 1
+            portal_1.reflectivity = 0.5
+            portal_1.side = THREE.DoubleSide
+
+  const portal_2 = new THREE.MeshMatcapMaterial()
+
+
             model.traverse(node => {
               if (node instanceof THREE.Mesh) {
 
-                console.log("node: ", node)
 
                 switch(true) {
                   case node.name.includes("outside"):
@@ -37,11 +59,28 @@
                     outsideMat.colorWrite = false
                     node.material = outsideMat
                     node.renderOrder = 1
-                    outside.children.push(node)
                     break
                   case node.name.includes("inside"):
+
+                    console.log(node.material.name)
+                    switch(true) {
+                      case node.material.name === "sculrture_david":
+                        console.log("DAVID")
+                        node.material = david
+                      case node.material.name === "sculrture_venus":
+                        console.log("VENUS")
+                        node.material = venus
+                      case node.material.name === "interrior_1":
+                        node.material = interrior
+                        console.log("INTERRIOR")
+                      case node.material.name === "interrior_2":
+                        node.material = interrior
+                        console.log("INTERRIOR")
+                      default:
+                        break
+                    }
+
                     node.renderOrder = 2
-                    inside.children.push(node)
                     break
                   default:
                     break
@@ -84,8 +123,8 @@
           position="0 0 0"
           scale="0.0005 0.0005 0.0005"
           obj-model="
-            obj: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/portal.obj);
-            mtl: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/portal.mtl);
+            obj: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/portal_test.obj);
+            mtl: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/portal_test.mtl);
           "
         ></a-entity>
     </a-scene>
