@@ -16,7 +16,7 @@ const load = e => {
   console.log(e)
   let modelViewerParameters = e.target
   console.log("TEST: ", modelViewerParameters)
-  
+
   let scene = modelViewerParameters[Object.getOwnPropertySymbols(modelViewerParameters).find(e => e.description === 'scene')]
   let modelArray = scene.children[0].children[0].children[0].children
 
@@ -44,6 +44,8 @@ const load = e => {
   materials[6].pbrMetallicRoughness.setMetallicFactor(1)
   materials[5].pbrMetallicRoughness.setRoughnessFactor(0.3)
   materials[6].pbrMetallicRoughness.setRoughnessFactor(0.3)
+
+  console.log("TEST TEST TEST")
 
 }
 
