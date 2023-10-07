@@ -33,7 +33,7 @@
   model-viewer {
     background: linear-gradient(0deg, rgb(41, 41, 41) 26%, rgb(70, 70, 70) 100%);
     width: 100vw;
-    height: 94vh;
+    height: 100vh;
   }
 </style>
 
@@ -41,21 +41,24 @@
 <body>
 
   <model-viewer
-    id="david"
+    id="portal"
     ar
-    scale="0.0005 0.0005 0.0005"
+    scale="0.0025 0.0025 0.0025"
+    scale="0.0025 0.0025 0.0025"
     camera-controls
     touch-action="pan-y"
     src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/room.glb"
-    alt="A 3D model of an David"
+    alt="A 3D model of an portal"
   >
-
+    <effect-composer render-mode="quality">
+      <outline-effect color="red" blend-mode="false"></outline-effect>
+    </effect-composer>
   </model-viewer>
 
   <script type="module" crossorigin="anonymous">
     import * as THREE from 'three'
 
-    const modelViewerParameters = document.querySelector("model-viewer#david")
+    const modelViewerParameters = document.querySelector("model-viewer#portal")
 
     modelViewerParameters.addEventListener("load", e => {
       let scene = modelViewerParameters[Object.getOwnPropertySymbols(modelViewerParameters).find(e => e.description === 'scene')]
@@ -73,54 +76,20 @@
       outside.material.side = 2
       outside.renderOrder = 1
 
+      const interrior1 = new THREE.MeshMatcapMaterial()
+      interrior1.color = new THREE.Color("rgb(120, 120, 200)")
+      interrior_1.material = interrior1
+
+      let materials = modelViewerParameters.model.materials
+      materials[3].pbrMetallicRoughness.setBaseColorFactor([0.05, 0.05, 0.05])
+      materials[4].pbrMetallicRoughness.setBaseColorFactor([1, 1, 1])
+      materials[5].pbrMetallicRoughness.setBaseColorFactor([0.7294, 0.5333, 0.0392])
+      materials[6].pbrMetallicRoughness.setBaseColorFactor([0.7294, 0.5333, 0.0392])
+      materials[5].pbrMetallicRoughness.setMetallicFactor(1)
+      materials[6].pbrMetallicRoughness.setMetallicFactor(1)
+      materials[5].pbrMetallicRoughness.setRoughnessFactor(0.3)
+      materials[6].pbrMetallicRoughness.setRoughnessFactor(0.3)
     })
-
-
-
-    // const test = new THREE.MeshPhysicalMaterial()
-    // test.metalness = 0.8
-    // test.roughness = 0
-    // test.reflectivity = 1
-
-    // modelViewerParameters.addEventListener("load", e => {
-    //   console.log(e)
-    //   console.log(modelViewerParameters.model)
-
-    //   let materials = modelViewerParameters.model.materials
-
-    //   console.log(materials)
-    //   console.log("0", materials[0].name)
-    //   console.log("1", materials[1].name)
-    //   console.log("2", materials[2].name)
-    //   console.log("3", materials[3].name)
-    //   console.log("4", materials[4].name)
-
-    //   let outside = materials[0]
-    //   let interrior_1 = materials[1]
-    //   let interrior_2 = materials[2]
-    //   let portal_1 = materials[3]
-    //   let portal_2 = materials[4]
-
-
-    //   outside.setAlphaCutoff(1)
-    //   // outside.setAlphaMode("BLEND")
-    //   outside.setAlphaMode("OPAQUE")
-    //   // outside.setAlphaMode("MASK")
-    //   // outside.setDoubleSided(false)
-    //   outside.pbrMetallicRoughness.setBaseColorFactor([1, 0, 0, 0])
-
-    //   interrior_1.setAlphaCutoff(0)
-    //   interrior_1.setAlphaMode("BLEND")
-    //   // // interrior_1.setDoubleSided(false)
-    //   interrior_1.pbrMetallicRoughness.setBaseColorFactor([0, 0, 0.5, 1])
-
-    //   // // interrior_2.setAlphaCutoff(0)
-    //   // // interrior_2.setAlphaMode("BLEND")
-    //   // interrior_2.setDoubleSided(false)
-
-    // })
-
-
   </script>
 
 </body>
