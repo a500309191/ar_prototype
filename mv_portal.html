@@ -35,6 +35,15 @@
     width: 100vw;
     height: 100vh;
   }
+  .ar-button {
+    background-color: white;
+    font-size: 36px;
+    border-radius: 4px;
+    border: none;
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+  }
 </style>
 
 
@@ -43,13 +52,13 @@
   <model-viewer
     id="portal"
     ar
-    scale="0.02 0.02 0.02"
+    scale="0.05 0.05 0.05"
     camera-controls
     touch-action="pan-y"
     src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/room.glb"
-    ios-src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/room.usdz"
     alt="A 3D model of an portal"
   >
+    <button class="ar-button" slot="ar-button">OPEN IN AR</button>
   </model-viewer>
 
   <script type="module" crossorigin="anonymous">
@@ -87,9 +96,10 @@
       materials[6].pbrMetallicRoughness.setMetallicFactor(1)
       materials[5].pbrMetallicRoughness.setRoughnessFactor(0.3)
       materials[6].pbrMetallicRoughness.setRoughnessFactor(0.3)
+
     })
+
   </script>
 
 </body>
-
 </html>
