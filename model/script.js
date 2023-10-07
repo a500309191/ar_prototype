@@ -14,6 +14,8 @@ const onProgress = (event) => {
 
 const load = e => {
   console.log(e)
+  let modelViewerParameters = e.target
+  console.log(modelViewerParameters)
   // let scene = modelViewerParameters[Object.getOwnPropertySymbols(modelViewerParameters).find(e => e.description === 'scene')]
   // let modelArray = scene.children[0].children[0].children[0].children
 
