@@ -68,14 +68,16 @@
       let venus = modelArray[5]
       let david = modelArray[6]
 
+      const interrior1 = new THREE.MeshMatcapMaterial()
+      interrior1.color = new THREE.Color("rgb(100, 100, 220)")
+
+      interrior_1.material = interrior1
       outside.material.colorWrite = false
       outside.material.side = 2
       outside.renderOrder = 1
 
-
       let materials = modelViewerParameters.model.materials
       materials[2].setDoubleSided(false)
-      materials[1].pbrMetallicRoughness.setBaseColorFactor([0.4, 0.4, 0.8])
       materials[3].pbrMetallicRoughness.setBaseColorFactor([0.05, 0.05, 0.05])
       materials[4].pbrMetallicRoughness.setBaseColorFactor([1, 1, 1])
       materials[5].pbrMetallicRoughness.setBaseColorFactor([0.7294, 0.5333, 0.0392])
@@ -94,7 +96,7 @@
     id="portal"
     ar
     ar-modes="webxr"
-    scale="0.0025 0.0025 0.0025"
+    scale="0.01 0.01 0.01"
     camera-controls
     touch-action="pan-y"
     src="https://864427.selcdn.ru/e1c138bd4faf090bce/ar/room.glb"
