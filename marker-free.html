@@ -6,22 +6,22 @@
 
   <body style="margin: 0px; overflow: hidden;">
 
-    <a-scene test embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
+    <a-scene test embedded arjs>
       <a-marker preset="hiro">
-
-        <a-entity
-          model
-          id="model"
-          position="0 0 0"
-          scale="0.0005 0.0005 0.0005"
-          obj-model="
-            obj: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/venus.obj);
-            mtl: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/venus.mtl);
-          "
-        ></a-entity>
-
+        <a-anchor>
+          <a-entity
+            model
+            id="model"
+            position="0 0 0"
+            scale="0.0005 0.0005 0.0005"
+            obj-model="
+              obj: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/venus.obj);
+              mtl: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/venus.mtl);
+            "
+          ></a-entity>
+        </a-anchor>
       </a-marker>
-      <a-entity id="camera" camera look-controls></a-entity>
+      <a-entity id="camera" camera></a-entity>
     </a-scene>
 
 
