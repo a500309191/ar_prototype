@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
+  <body style="margin: 0px; overflow: hidden;">
+
+    <a-scene test embedded vr-mode-ui="enabled: false" arjs="debugUIEnabled: false;">
+      <a-marker preset="hiro">
+
+        <a-entity
+          model
+          id="model"
+          position="0 0 0"
+          scale="0.0005 0.0005 0.0005"
+          obj-model="
+            obj: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/venus.obj);
+            mtl: url(https://864427.selcdn.ru/e1c138bd4faf090bce/ar/venus.mtl);
+          "
+        ></a-entity>
+
+      </a-marker>
+      <a-entity id="camera" camera look-controls></a-entity>
+    </a-scene>
+
+
+    <script>
+
+      const body = document.querySelector("body")
+      const scene = document.querySelector('a-scene')
+      const marker = document.querySelector("a-marker")
+      const camera = document.querySelector("#camera")
+      const model = document.querySelector("#model")
+      const modelClone = model.cloneNode(true)
+
+
+      marker.addEventListener("markerFound", e => {
+
+        console.log("markerFound")
+
+        setTimeout(() => {
+          console.log("save position")
+          var markerPosition = marker.getAttribute('position')
+          var markerRotation = marker.getAttribute('rotation')
+
+          modelClone.setAttribute('position', markerPosition)
+          modelClone.setAttribute('rotation', markerRotation)
+
+          scene.removeChild(marker)
+          scene.appendChild(modelClone)
+        }, 2000)
+
+      })
+
+
+    </script>
+
+  </body>
+  
+</html>
