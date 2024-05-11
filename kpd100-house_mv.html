@@ -27,8 +27,8 @@
   }
   model-viewer {
     background: linear-gradient(0deg, rgb(41, 41, 41) 26%, rgb(70, 70, 70) 100%);
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
   }
   .ar-button {
     background-color: white;
@@ -143,20 +143,22 @@
         // scene.background = envTexture
         // scene.environment = envTexture
       })
+
+
     })
   </script>
 
   <model-viewer
-  id="portal"
-    alt="..."
+    id="portal"
     ar
-    src="https://37b2dece-59c8-49a9-9247-fca3a44ee9fb.selstorage.ru/kpd100/classic90.glb"
-    shadow-intensity="1"
+    ar-modes="webxr"
+    scale="0.0025 0.0025 0.0025"
     camera-controls
     touch-action="pan-y"
+    src="https://37b2dece-59c8-49a9-9247-fca3a44ee9fb.selstorage.ru/kpd100/classic90.glb"
+    alt="A 3D model of an portal"
   >
   </model-viewer>
-
 
 </body>
 </html>
