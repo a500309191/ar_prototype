@@ -45,107 +45,105 @@
 <body>
 
   <script type="module" crossorigin="anonymous">
-   import * as THREE from 'three'
-   import { RGBELoader } from 'https://unpkg.com/three/examples/jsm/loaders/RGBELoader.js'
+   // import * as THREE from 'three'
+   // import { RGBELoader } from 'https://unpkg.com/three/examples/jsm/loaders/RGBELoader.js'
 
-    const modelViewerParameters = document.querySelector("model-viewer#portal")
+   //  const modelViewerParameters = document.querySelector("model-viewer#portal")
 
-    modelViewerParameters.addEventListener("load", e => {
-      const scene = modelViewerParameters[Object.getOwnPropertySymbols(modelViewerParameters).find(e => e.description === 'scene')]
-      const model = scene.children[0].children[0].children[0].children
+   //  modelViewerParameters.addEventListener("load", e => {
+   //    const scene = modelViewerParameters[Object.getOwnPropertySymbols(modelViewerParameters).find(e => e.description === 'scene')]
+   //    const model = scene.children[0].children[0].children[0].children
 
-      const terraceTile = model[0]
-      const terraceConcrete = model[1]
-      const tube1 = model[9]
-      const door1T = model[7]
-      const door2 = model[8]
-      const chimney1 = model[6]
-      const glass1 = model[5]
-      const frame1 = model[4]
-      const facade1 = model[2]
-      const facade2 = model[16]
-      const facade3T = model[3]
-      const roof1T = model[10]
-      const roof1 = model[11]
-      const roof2 = model[17]
-      const roof3 = model[12]
-      const soffit1 = model[14]
-      const soffit2 = model[15]
-      const soffit3 = model[13]
-      const lights1 = model[18]
-      const lights2 = model[19]
+   //    const terraceTile = model[0]
+   //    const terraceConcrete = model[1]
+   //    const tube1 = model[9]
+   //    const door1T = model[7]
+   //    const door2 = model[8]
+   //    const chimney1 = model[6]
+   //    const glass1 = model[5]
+   //    const frame1 = model[4]
+   //    const facade1 = model[2]
+   //    const facade2 = model[16]
+   //    const facade3T = model[3]
+   //    const roof1T = model[10]
+   //    const roof1 = model[11]
+   //    const roof2 = model[17]
+   //    const roof3 = model[12]
+   //    const soffit1 = model[14]
+   //    const soffit2 = model[15]
+   //    const soffit3 = model[13]
+   //    const lights1 = model[18]
+   //    const lights2 = model[19]
 
-      const glassMaterial = new THREE.MeshPhysicalMaterial()
-      glassMaterial.color = new THREE.Color("rgb(255, 255, 255)")
-      glassMaterial.transparent = true
-      glassMaterial.opacity = 0.9
-      glassMaterial.roughness = 0
-      glassMaterial.metalness = 0.25
-      glassMaterial.reflectivity = 1
-      glassMaterial.side = 2
-      glass1.material = glassMaterial
+   //    const glassMaterial = new THREE.MeshPhysicalMaterial()
+   //    glassMaterial.color = new THREE.Color("rgb(255, 255, 255)")
+   //    glassMaterial.transparent = true
+   //    glassMaterial.opacity = 0.9
+   //    glassMaterial.roughness = 0
+   //    glassMaterial.metalness = 0.25
+   //    glassMaterial.reflectivity = 1
+   //    glassMaterial.side = 2
+   //    glass1.material = glassMaterial
 
-      const tubeMaterial = new THREE.MeshPhysicalMaterial()
-      tubeMaterial.color = new THREE.Color("rgb(100, 100, 100)")
-      tubeMaterial.roughness = 0
-      tubeMaterial.metalness = 0.25
-      tubeMaterial.reflectivity = 0.75
-      tube1.material = tubeMaterial
+   //    const tubeMaterial = new THREE.MeshPhysicalMaterial()
+   //    tubeMaterial.color = new THREE.Color("rgb(100, 100, 100)")
+   //    tubeMaterial.roughness = 0
+   //    tubeMaterial.metalness = 0.25
+   //    tubeMaterial.reflectivity = 0.75
+   //    tube1.material = tubeMaterial
 
-      const lightsMaterial = new THREE.MeshPhysicalMaterial()
-      lightsMaterial.color = new THREE.Color("rgb(50, 50, 50)")
-      lightsMaterial.roughness = 0.25
-      lightsMaterial.metalness = 0.75
-      lightsMaterial.reflectivity = 1
-      lights1.material = lightsMaterial
+   //    const lightsMaterial = new THREE.MeshPhysicalMaterial()
+   //    lightsMaterial.color = new THREE.Color("rgb(50, 50, 50)")
+   //    lightsMaterial.roughness = 0.25
+   //    lightsMaterial.metalness = 0.75
+   //    lightsMaterial.reflectivity = 1
+   //    lights1.material = lightsMaterial
 
-      const chimneyMaterial = new THREE.MeshPhysicalMaterial()
-      chimneyMaterial.color = new THREE.Color("rgb(50, 50, 50)")
-      chimneyMaterial.roughness = 0.25
-      chimneyMaterial.metalness = 0.75
-      chimneyMaterial.reflectivity = 1
-      chimney1.material = chimneyMaterial
+   //    const chimneyMaterial = new THREE.MeshPhysicalMaterial()
+   //    chimneyMaterial.color = new THREE.Color("rgb(50, 50, 50)")
+   //    chimneyMaterial.roughness = 0.25
+   //    chimneyMaterial.metalness = 0.75
+   //    chimneyMaterial.reflectivity = 1
+   //    chimney1.material = chimneyMaterial
 
-      const roof1Material = new THREE.MeshPhysicalMaterial()
-      roof1Material.color = new THREE.Color("rgb(100, 100, 100)")
-      roof1Material.roughness = 1
-      roof1Material.metalness = 0.15
-      roof1Material.reflectivity = 0
-      roof1.material = roof1Material
+   //    const roof1Material = new THREE.MeshPhysicalMaterial()
+   //    roof1Material.color = new THREE.Color("rgb(100, 100, 100)")
+   //    roof1Material.roughness = 1
+   //    roof1Material.metalness = 0.15
+   //    roof1Material.reflectivity = 0
+   //    roof1.material = roof1Material
 
-      const facade2Material = new THREE.MeshPhysicalMaterial()
-      facade2Material.color = new THREE.Color("rgb(55, 55, 55)")
-      facade2Material.roughness = 0.5
-      facade2Material.metalness = 0.5
-      facade2Material.reflectivity = 0.5
-      facade2.material = facade2Material
+   //    const facade2Material = new THREE.MeshPhysicalMaterial()
+   //    facade2Material.color = new THREE.Color("rgb(55, 55, 55)")
+   //    facade2Material.roughness = 0.5
+   //    facade2Material.metalness = 0.5
+   //    facade2Material.reflectivity = 0.5
+   //    facade2.material = facade2Material
 
-      const door2Material = new THREE.MeshPhysicalMaterial()
-      door2Material.color = new THREE.Color("rgb(150, 150, 150)")
-      door2Material.roughness = 0.25
-      door2Material.metalness = 0.75
-      door2Material.reflectivity = 0.75
-      door2.material = door2Material
+   //    const door2Material = new THREE.MeshPhysicalMaterial()
+   //    door2Material.color = new THREE.Color("rgb(150, 150, 150)")
+   //    door2Material.roughness = 0.25
+   //    door2Material.metalness = 0.75
+   //    door2Material.reflectivity = 0.75
+   //    door2.material = door2Material
 
-      const door1TMaterial = new THREE.MeshPhysicalMaterial()
-      door1TMaterial.color = new THREE.Color("rgb(255, 255, 255)")
-      door1TMaterial.map = door1T.material.map
-      door1TMaterial.roughness = 1
-      door1TMaterial.metalness = 0
-      door1TMaterial.reflectivity = 0
-      door1T.material = door1TMaterial
+   //    const door1TMaterial = new THREE.MeshPhysicalMaterial()
+   //    door1TMaterial.color = new THREE.Color("rgb(255, 255, 255)")
+   //    door1TMaterial.map = door1T.material.map
+   //    door1TMaterial.roughness = 1
+   //    door1TMaterial.metalness = 0
+   //    door1TMaterial.reflectivity = 0
+   //    door1T.material = door1TMaterial
 
-      const rgbeLoader = new RGBELoader()
-      rgbeLoader.load('https://37b2dece-59c8-49a9-9247-fca3a44ee9fb.selstorage.ru/kpd100/envMap.hdr', envTexture => {
-        envTexture.mapping = THREE.EquirectangularReflectionMapping
-        glassMaterial.envMap = envTexture
-        tube1.envMap = envTexture
-        // scene.background = envTexture
-        // scene.environment = envTexture
-      })
-
-
-    })
+   //    const rgbeLoader = new RGBELoader()
+   //    rgbeLoader.load('https://37b2dece-59c8-49a9-9247-fca3a44ee9fb.selstorage.ru/kpd100/envMap.hdr', envTexture => {
+   //      envTexture.mapping = THREE.EquirectangularReflectionMapping
+   //      glassMaterial.envMap = envTexture
+   //      tube1.envMap = envTexture
+   //      // scene.background = envTexture
+   //      // scene.environment = envTexture
+   //    })
+   //  })
   </script>
 
   <model-viewer
